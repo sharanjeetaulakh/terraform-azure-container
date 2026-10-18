@@ -5,7 +5,8 @@ data "azurerm_storage_container" "storage_container" {
 
 resource "azurerm_storage_container" "container" {
   for_each = var.containers
+
   name                  = each.value.name
-# storage_container_id = data.azurerm_storage_container.storage_container[each.key].id
+  storage_account_id    = data.azurerm_storage_account.storage_account.id
   container_access_type = each.value.container_access_type
 }
