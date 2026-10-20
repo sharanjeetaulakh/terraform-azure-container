@@ -1,5 +1,5 @@
-data "azurerm_storage_container" "storage_container" {
-  for_each = var.containers
-  name                 =each.value.name
-  storage_account_name =each.value.storage_account_name
+data "azurerm_storage_account" "storage_account" {
+    for_each = var.containers
+    name                 =each.value.name
+    resource_group_name = each.value.resource_group_name
 }
