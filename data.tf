@@ -3,3 +3,7 @@ data "azurerm_storage_account" "storage_account" {
     name                 =each.value.name
     resource_group_name = each.value.resource_group_name
 }
+
+output "storage_account_tier" {
+  value = data.azurerm_storage_account.storage_account.account_tier
+}
